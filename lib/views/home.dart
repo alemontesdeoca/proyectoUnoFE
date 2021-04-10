@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:proyectoUnoFE/theme/colors.dart';
 import 'package:proyectoUnoFE/theme/theme.dart';
+import 'package:proyectoUnoFE/views/perfil/perfil.dart';
 import 'package:proyectoUnoFE/widgets/card_pts.dart';
 
 
@@ -59,6 +60,13 @@ alignment: MainAxisAlignment.start,
               ListTile(
                 title: Text('Perfil',style: TextStyle(fontSize: 18,)),
                 onTap: () {
+
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+
+
+                    return PerfilView();
+
+                  }));
                 },
               ),
               ListTile(
