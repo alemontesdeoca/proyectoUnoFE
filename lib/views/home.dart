@@ -12,7 +12,68 @@ class HomeView extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-        drawer: Drawer(),
+        drawer: Drawer(
+
+          child: ListView(
+           padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: themeData.primaryColor,
+                  ),
+                child: Column(
+
+                  crossAxisAlignment:CrossAxisAlignment.start ,
+                  mainAxisAlignment:MainAxisAlignment.start ,
+                  children: [
+
+                Text('Juan Carlos',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                  SizedBox(height: 20,),
+                    Text("0 puntos",style: TextStyle(fontSize: 18),),
+          SizedBox(height: 20,),
+
+          LinearPercentIndicator(
+            animation: true,
+            animationDuration: 1000,
+            lineHeight: 20.0,
+padding: EdgeInsets.zero,
+alignment: MainAxisAlignment.start,
+            percent: 0.2,
+            linearStrokeCap: LinearStrokeCap.butt,
+            progressColor: Colors.red,
+            backgroundColor: themeData.accentColor,
+          )
+
+                ],)
+              ),
+              ListTile(
+                title: Text('Saldo - \$200',style: TextStyle(fontSize: 18,)),
+                onTap: () {
+
+                },
+              ),
+              ListTile(
+                title: Text('Transferir Saldo',style: TextStyle(fontSize: 18,)),onTap: () {
+                },
+              ),
+              ListTile(
+                title: Text('Perfil',style: TextStyle(fontSize: 18,)),
+                onTap: () {
+                },
+              ),
+              ListTile(
+                title: Text('Cuenta Bancaria',style: TextStyle(fontSize: 18,)),
+                onTap: () {
+                },
+              ),
+              ListTile(
+                title: Text('Salir',style: TextStyle(fontSize: 18,)),
+                onTap: () {
+                },
+              ),
+            ],
+          ),
+        ),
         appBar: AppBar(),
         body: ListView(
           children: [
@@ -64,7 +125,7 @@ class HomeView extends StatelessWidget{
                 lineHeight: 20.0,
                 percent: 0.2,
                 linearStrokeCap: LinearStrokeCap.butt,
-                progressColor: themeData.primaryColor,
+                progressColor: Colors.red,
                 backgroundColor: themeData.accentColor,
               );
             }),
