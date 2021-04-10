@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyectoUnoFE/theme/text.dart';
+import 'package:proyectoUnoFE/views/home.dart';
 import 'package:proyectoUnoFE/views/login/sing_up/sign_up_one.dart';
 import 'package:proyectoUnoFE/widgets/button.dart';
 
@@ -45,7 +46,15 @@ class SingInView extends StatelessWidget {
 
           Button(text:"ingresar" ,function:(){
 
-            print("hola");
+
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+
+
+
+              return HomeView();
+
+            }));
+
           } ,),
 
           SizedBox(height: 10,),
