@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 
-TextStyle textCardPt = TextStyle(fontSize: 18,);
+TextStyle textCardPt = TextStyle(fontSize: 16,);
 
 TextStyle mainTitle = TextStyle(fontSize: 50,foreground:
 

@@ -7,16 +7,34 @@ class Button extends StatelessWidget{
 
   final String text;
   final Function function;
+  final bool disabled;
 
 
-  Button({this.text, this.function});
+  Button({this.text, this.function, this.disabled=false});
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return
+    
 
-      GestureDetector(
+if(disabled){
+return GestureDetector(
+
+        child: Container(
+
+          padding: EdgeInsets.all(20),
+
+          decoration: BoxDecoration(          color:Colors.grey,
+
+              borderRadius: BorderRadius.circular(30)
+          ),
+          alignment: Alignment.center,
+          child: Text(this.text.toUpperCase(),style: button,),
+
+      ),);
+} else {
+
+return    GestureDetector(
 
         onTap:this.function,
         child: Container(
@@ -32,7 +50,8 @@ class Button extends StatelessWidget{
 
       ),);
 
-      Container(child:  RaisedButton(onPressed:this.function,child: Text(this.text.toUpperCase()),),);
+  
+}
   }
 
 
