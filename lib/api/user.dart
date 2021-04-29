@@ -3,46 +3,42 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 
-
-
 class ApiUser {
+  var client = http.Client();
 
-var client = http.Client();
+  Future getPoints($id) async {
+    var response = await http.get(
+        "http://192.168.43.245/proyectoUnoBE/controllers/points.php?id=" + $id);
 
+    return response;
+  }
 
+  Future createUser($email, $password, $name, $surname, $tel, $address) async {
+    var data = json.encode({
+      "email": $email,
+      "password": $password,
+      "nombre": $name,
+      "apellido": $surname,
+      "telefono": $tel,
+      "direccion": $address
+    });
 
+    var response = await http.post(
+        "http://192.168.43.245/proyectoUnoBE/controllers/user.php",
+        body: data);
 
-Future getPoints($id) async{
+    return response;
+  }
 
-  var response = await http.get( "http://192.168.43.245/proyectoUnoBE/controllers/points.php?id="+$id);
-
-return response;
-
-
-
-}
- 
-
-  Future updatePoints(idUser,points) async {
-
+  Future updatePoints(idUser, points) async {
     try {
-    
-             var data = json.encode({
-       "id_user": idUser,
-       "puntos": points
-      });
-           
-  var response = await http.post( "http://192.168.43.245/proyectoUnoBE/controllers/points.php", body: data);
+      var data = json.encode({"id_user": idUser, "puntos": points});
 
+      var response = await http.post(
+          "http://192.168.43.245/proyectoUnoBE/controllers/points.php",
+          body: data);
 
- 
-return response;
-
- 
-
-
-
-
+      return response;
     } on SocketException {
       print('Error de conectividad, por favor verificá tu conexión!');
       return null;
@@ -53,9 +49,7 @@ return response;
       print(e);
       return null;
     } finally {
-
-        client.close();
-
+      client.close();
     }
   }
 }

@@ -216,7 +216,7 @@ return FinishSurveyView(widget.surveyDetail,widget.user);
                 widget.surveyDetail.productName,
             style: TextStyle(fontSize: 20),
           )),
-          Image.network(  "http://192.168.43.245/TP1/" + widget.surveyDetail.image),
+          Image.network(  "http://192.168.43.245/TP1/proyectoUnoFEWeb/" + widget.surveyDetail.image),
           Center(
             child: Text(questionSelected == null ? " ": questionSelected.detailQuestion,
                 style: TextStyle(fontSize: 14)),

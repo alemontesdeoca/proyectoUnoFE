@@ -96,57 +96,32 @@ class HomeViewState extends State<HomeView> {
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
+
                       SizedBox(
-                        height: 20,
+                        height: 40,
                       ),
-                      Text(
+          LinearPercentIndicator(
+            animation: true,
+            alignment: MainAxisAlignment.center,
+            animationDuration: 1000,
+            lineHeight: 20.0,
+            percent: points == null || surveysList.surveys.toString() == "[]"?  0 :double.parse(points[0].points) == 0
+                ? 0
+                : (int.parse(points[0].points) /
+                int.parse(surveysList.surveys[0].totalPoints)),
+            linearStrokeCap: LinearStrokeCap.butt,
+            progressColor: Colors.red,
+            backgroundColor: themeData.accentColor,
+          ),           SizedBox(
+                        height: 20,
+                      ),Center(child: Text(
                         user != null ? user.points : "",
                         style: TextStyle(fontSize: 18),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      LinearPercentIndicator(
-                        animation: true,
-                        animationDuration: 1000,
-                        lineHeight: 20.0,
-                        padding: EdgeInsets.zero,
-                        alignment: MainAxisAlignment.start,
-                        percent: 0.2,
-                        linearStrokeCap: LinearStrokeCap.butt,
-                        progressColor: Colors.red,
-                        backgroundColor: themeData.accentColor,
-                      )
+                      ),)
                     ],
                   )),
               ListTile(
                 title: Text('Saldo - \$200',
-                    style: TextStyle(
-                      fontSize: 18,
-                    )),
-                onTap: () {},
-              ),
-              ListTile(
-                title: Text('Transferir Saldo',
-                    style: TextStyle(
-                      fontSize: 18,
-                    )),
-                onTap: () {},
-              ),
-              ListTile(
-                title: Text('Perfil',
-                    style: TextStyle(
-                      fontSize: 18,
-                    )),
-                onTap: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) {
-                    return PerfilView();
-                  }));
-                },
-              ),
-              ListTile(
-                title: Text('Cuenta Bancaria',
                     style: TextStyle(
                       fontSize: 18,
                     )),
@@ -244,7 +219,7 @@ class HomeViewState extends State<HomeView> {
                                   pts: surveysList.surveys[index].points,
                                   image: surveysList == null
                                       ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAEWZi-vqv4Yz1WQ4oEcjlnpp5nz9murDK_g&usqp=CAU"
-                                      : "http://192.168.43.245/TP1/" +
+                                      : "http://192.168.43.245/TP1/proyectoUnoFEWeb/" +
                                           surveysList.surveys[index].image)
                               : Container(),
                         ],

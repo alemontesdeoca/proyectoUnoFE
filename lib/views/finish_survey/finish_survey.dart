@@ -151,7 +151,7 @@ class FinishSurveyViewState extends State<FinishSurveyView> {
                 widget.survey.productName,
             style: TextStyle(fontSize: 20),
           )),
-          Image.network("http://192.168.43.245/TP1/" + widget.survey.image),
+          Image.network("http://192.168.43.245/TP1/proyectoUnoFEWeb/" + widget.survey.image),
           Center(
             child: Text("Finalizaste la encuesta de este producto",
                 style: TextStyle(fontSize: 16)),

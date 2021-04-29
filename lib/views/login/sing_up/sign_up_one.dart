@@ -11,11 +11,10 @@ class SingUpViewOne extends StatelessWidget {
 
   TextEditingController surName = TextEditingController();
 
-  TextEditingController birthDate = TextEditingController();
+  TextEditingController tel = TextEditingController();
 
-  TextEditingController gender = TextEditingController();
+  TextEditingController address = TextEditingController();
 
-  TextEditingController nationality = TextEditingController();
   @override
   Widget build(BuildContext context) {
 
@@ -48,32 +47,14 @@ class SingUpViewOne extends StatelessWidget {
 
               SizedBox(height: 10,),
 
+              Text("Télefono",style: TextStyle(fontSize: 14),),
+              TextField(controller: tel,),
 
-              Text("Fecha Nacimiento",style: TextStyle(fontSize: 14)),
-
-              TextField(
-                controller: birthDate,
-                onTap: () async{
-                  DateTime date = DateTime(1900);
-                  FocusScope.of(context).requestFocus(new FocusNode());
-
-                  date = await showDatePicker(
-                      context: context,
-                      initialDate:DateTime.now(),
-                      firstDate:DateTime(1900),
-                      lastDate: DateTime(2100));
-
-                  birthDate.text = date.toIso8601String();},),
 
               SizedBox(height: 10,),
 
-              Text("Genero",style: TextStyle(fontSize: 14)),
-              TextField(controller: gender,),
-
-              SizedBox(height: 10,),
-
-              Text("Nacionalidad",style: TextStyle(fontSize: 14)),
-              TextField(controller: nationality,),
+              Text("Dirección",style: TextStyle(fontSize: 14)),
+              TextField(controller: address,),
 
 
               SizedBox(height: 10,),
@@ -85,7 +66,7 @@ class SingUpViewOne extends StatelessWidget {
 
                 Navigator.push(context, MaterialPageRoute(builder: (context){
 
-                  return SingUpViewTwo();
+                  return SingUpViewTwo(name: name.text,surName:surName.text,tel: tel.text,address:address.text );
 
                 }));
 
